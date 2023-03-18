@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "919619791987",
+    "project_id": "cashmates-2ba83",
+    "storage_bucket": "cashmates-2ba83.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:919619791987:android:60756fcd0d0410b8b5ce06",
+        "android_client_info": {
+          "package_name": "com.example.cashmates"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "919619791987-6kqginmiqk4ro13ga2ru7v6r507srrdr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAGBi5IwzNJ_aUlVZEHaRXBbSslcEcRtVc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "919619791987-6kqginmiqk4ro13ga2ru7v6r507srrdr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
