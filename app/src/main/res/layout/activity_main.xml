@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:autofillHints="5000"
-        android:inputType="number"
+        android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spendAmount"
@@ -46,11 +46,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:autofillHints="5000"
-        android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spendOn"
-        tools:ignore="LabelFor" />
+        tools:ignore="LabelFor"
+        android:inputType="text" />
 
     <Button
         android:id="@+id/add"
