@@ -1,8 +1,12 @@
 package com.example.cashmates
 
+import android.content.DialogInterface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.cashmates.daos.PostDao
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -16,6 +20,14 @@ class MainActivity : AppCompatActivity() {
                 val postDao = PostDao()
                 postDao.addPost(input1,input2)
             }
+            MaterialAlertDialogBuilder(this)
+                .setMessage("Added Successfully")
+                .setPositiveButton("Ok") { dialog, which ->
+                    showSnackBar("Happy Saving")
+                }.show()
         }
+    }
+    private fun showSnackBar(msg: String) {
+        Snackbar.make(rootLayout, msg, Snackbar.LENGTH_SHORT).show()
     }
 }
