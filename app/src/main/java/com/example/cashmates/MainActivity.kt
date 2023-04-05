@@ -1,8 +1,10 @@
 package com.example.cashmates
 
 import android.content.DialogInterface
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.cashmates.daos.PostDao
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -22,9 +24,14 @@ class MainActivity : AppCompatActivity() {
             }
             MaterialAlertDialogBuilder(this)
                 .setMessage("Added Successfully")
-                .setPositiveButton("Ok") { dialog, which ->
+                .setPositiveButton("Ok") { _, _ ->
                     showSnackBar("Happy Saving")
                 }.show()
+        }
+
+        analyze.setOnClickListener {
+            val intent = Intent(this, Analyze::class.java)
+            startActivity(intent)
         }
     }
     private fun showSnackBar(msg: String) {
