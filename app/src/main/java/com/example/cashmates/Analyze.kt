@@ -3,6 +3,7 @@ package com.example.cashmates
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
@@ -20,7 +21,8 @@ class Analyze : AppCompatActivity() {
         })
     }
     private fun readData(myCallback : MyCallback) {
-        myCollectionRef.get().addOnCompleteListener { task ->
+        val userId = FirebaseAuth.getInstance().currentUser?.uid.toString()
+        myCollectionRef.whereEqualTo("createdBy.uid", userId).get().addOnCompleteListener { task ->
             if (task.isSuccessful) {
                 val hashMap : HashMap<String, Int> = HashMap()
                 for (document in task.result) {
