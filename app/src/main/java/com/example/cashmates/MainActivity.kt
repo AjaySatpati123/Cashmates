@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
             MaterialAlertDialogBuilder(this)
                 .setMessage("Added Successfully")
                 .setPositiveButton("Ok") { _, _ ->
-                    showSnackBar("Happy Saving")
+                    Snackbar.make(rootLayout,"Happy Saving", Snackbar.LENGTH_SHORT).show()
                 }.show()
         }
 
@@ -31,8 +31,5 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, Analyze::class.java)
             startActivity(intent)
         }
-    }
-    private fun showSnackBar(msg: String) {
-        Snackbar.make(rootLayout, msg, Snackbar.LENGTH_SHORT).show()
     }
 }
