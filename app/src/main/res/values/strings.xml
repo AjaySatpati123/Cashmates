@@ -6,4 +6,5 @@
     <string name="analysis">Analysis</string>
     <string name="spending_per_month">Spending per month</string>
     <string name="spending_per_sector">Spending per sector</string>
+    <string name="spending_distribution">Spending Distribution</string>
 </resources>
