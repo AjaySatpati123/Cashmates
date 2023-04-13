@@ -3,10 +3,10 @@ package com.example.cashmates
 import android.annotation.SuppressLint
 import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.github.mikephil.charting.charts.BarChart
 import com.github.mikephil.charting.charts.PieChart
+import com.github.mikephil.charting.data.BarEntry
 import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
@@ -25,10 +25,11 @@ class Analyze : AppCompatActivity() {
         setContentView(R.layout.activity_analyze)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         readData(object: MyCallback {
-            override fun onCallback(value: HashMap<String,Int>, value2: HashMap<String,Int>) {
-                Log.d("Problem","${value2.size}")
+            override fun onCallback(value: HashMap<String,Int>, value2: MutableMap<String,Int>) {
 
-                val barGraph: BarChart
+                val sortedMap: MutableMap<String, Int> = TreeMap(value2)
+                val barChart: BarChart = findViewById(R.id.barChart)
+                val list2: ArrayList<BarEntry> = ArrayList()
 
                 val pieChart: PieChart = findViewById(R.id.pieChart)
                 val list: ArrayList<PieEntry> = ArrayList()
@@ -55,7 +56,7 @@ class Analyze : AppCompatActivity() {
         myCollectionRef.whereEqualTo("createdBy.uid", userId).get().addOnCompleteListener { task ->
             if (task.isSuccessful) {
                 val hashMap : HashMap<String, Int> = HashMap()
-                val hash : HashMap<String, Int> = HashMap()
+                var hash: MutableMap<String, Int>  = HashMap()
                 for (document in task.result) {
                     val time = document.getLong("createdAt")
                     val parsedTime = time?.let { convertLongToTime(it) }
@@ -86,6 +87,6 @@ class Analyze : AppCompatActivity() {
         return format.format(date)
     }
     interface MyCallback {
-        fun onCallback(value: HashMap<String,Int>, value2: HashMap<String,Int>)
+        fun onCallback(value: HashMap<String,Int>, value2: MutableMap<String,Int>)
     }
 }
