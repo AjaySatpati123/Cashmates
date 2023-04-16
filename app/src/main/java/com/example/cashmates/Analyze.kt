@@ -6,7 +6,9 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.github.mikephil.charting.charts.BarChart
 import com.github.mikephil.charting.charts.PieChart
+import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.data.*
+import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import com.github.mikephil.charting.utils.ColorTemplate
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
@@ -27,20 +29,32 @@ class Analyze : AppCompatActivity() {
 
 //                BarGraph
                 val sortedMap: MutableMap<String, Int> = TreeMap(value2)
-                val barChart: BarChart = findViewById(R.id.barChart)
-                val list2: ArrayList<BarEntry> = ArrayList()
-                for ((keys, values) in sortedMap.entries) {
-                    list2.add(BarEntry(keys.toFloat(),values.toFloat()))
+                val chart = findViewById<BarChart>(R.id.barChart)
+                chart.setDrawBarShadow(false)
+                chart.setDrawValueAboveBar(true)
+                chart.description.isEnabled = false
+                chart.setPinchZoom(false)
+                chart.setDrawGridBackground(false)
+                val labels = ArrayList<String>()
+                for ((keys, _) in sortedMap.entries) {
+                    labels.add(keys)
                 }
-                val barDataSet = BarDataSet(list2,"List")
-                barDataSet.setColors(ColorTemplate.COLORFUL_COLORS,255)
-                barDataSet.valueTextColor=Color.BLACK
-                val barData = BarData(barDataSet)
-                barChart.setFitBars(true)
-                barChart.data = barData
-                barChart.description.text = "Bar Chart"
-                barChart.animateY(2000)
-
+                val list2 = ArrayList<BarEntry>()
+                var i=0
+                for ((_, values) in sortedMap.entries) {
+                    list2.add(BarEntry(i.toFloat(),values.toFloat()))
+                    i++
+                }
+                val dataset = BarDataSet(list2, "Data Set Label")
+                dataset.colors = ColorTemplate.MATERIAL_COLORS.toList()
+                val barData = BarData(dataset)
+                chart.data = barData
+                chart.xAxis.valueFormatter= IndexAxisValueFormatter(labels)
+                chart.xAxis.position = XAxis.XAxisPosition.BOTTOM
+                chart.axisLeft.axisMinimum = 0f
+                chart.axisRight.axisMinimum = 0f
+                chart.animateY(1000)
+                chart.invalidate()
 //                PieChart
                 val pieChart: PieChart = findViewById(R.id.pieChart)
                 val list: ArrayList<PieEntry> = ArrayList()
