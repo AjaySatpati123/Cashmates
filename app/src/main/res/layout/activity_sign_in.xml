@@ -13,7 +13,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="24dp"
-        android:text="Sign In"
+        android:text="@string/sign_in"
         android:textStyle="bold"
         app:icon="@drawable/googlelogo"
         app:iconGravity="start"

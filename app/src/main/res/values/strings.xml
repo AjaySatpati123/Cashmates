@@ -8,4 +8,7 @@
     <string name="spending_per_sector">Spending per sector</string>
     <string name="spending_distribution">Spending Distribution</string>
     <string name="logout">Logout</string>
+    <string name="logout1">Logout</string>
+    <string name="sign_in">Sign In</string>
+    <string name="notes">Notes</string>
 </resources>
