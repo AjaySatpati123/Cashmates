@@ -11,4 +11,6 @@
     <string name="logout1">Logout</string>
     <string name="sign_in">Sign In</string>
     <string name="notes">Notes</string>
+    <string name="travel">Travel</string>
+    <string name="thousand">1000</string>
 </resources>
