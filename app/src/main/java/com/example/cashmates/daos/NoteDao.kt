@@ -11,9 +11,9 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 
 class NoteDao {
-    private val db = FirebaseFirestore.getInstance()
-    private val noteCollections = db.collection("notes")
-    private val auth = Firebase.auth
+    val db = FirebaseFirestore.getInstance()
+    val noteCollections = db.collection("notes")
+    val auth = Firebase.auth
 
     @OptIn(DelicateCoroutinesApi::class)
     fun addNote(text3:String){
