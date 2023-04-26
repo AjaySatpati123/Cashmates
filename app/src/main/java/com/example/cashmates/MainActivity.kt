@@ -49,7 +49,6 @@ class MainActivity : AppCompatActivity() {
 
         add.setOnClickListener {
             val input1 = enterAmount.text.toString().trim()
-//            val input2 = spendLocation.text.toString().trim()
             if(input1.isNotEmpty() && input2.isNotEmpty()){
                 val postDao = PostDao()
                 postDao.addPost(input1,input2)
