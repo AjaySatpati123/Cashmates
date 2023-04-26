@@ -44,6 +44,11 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, Analyze::class.java)
             startActivity(intent)
         }
+
+        addNote.setOnClickListener {
+            val intent2 = Intent(this, Notes::class.java)
+            startActivity(intent2)
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

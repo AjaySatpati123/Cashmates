@@ -13,4 +13,7 @@
     <string name="notes">Notes</string>
     <string name="travel">Travel</string>
     <string name="thousand">1000</string>
+    <string name="_00_00_0000">00-00-0000</string>
+    <string name="addNote">Add</string>
+    <string name="what_do_you_want_to_take_a_note_of">What do you want to take a note of?</string>
 </resources>
