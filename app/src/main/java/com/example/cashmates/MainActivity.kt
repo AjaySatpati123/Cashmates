@@ -6,6 +6,10 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
 import com.example.cashmates.daos.PostDao
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -18,6 +22,7 @@ import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
+    val sector = arrayOf("Travel","Grocery","Food","One Time Cost","Entertainment","Other Cost")
     private companion object{
         private const val TAG = "MainActivity"
     }
@@ -25,10 +30,26 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         auth = Firebase.auth
+
+        val spinner = findViewById<Spinner>(R.id.spendLocation)
+        val arrayAdapter = ArrayAdapter(this,android.R.layout.simple_spinner_dropdown_item, sector)
+        spinner.adapter = arrayAdapter
+        var input2 = ""
+
+        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+                input2 = sector[p2]
+            }
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+                TODO("Not yet implemented")
+            }
+        }
+
         add.setOnClickListener {
             val input1 = enterAmount.text.toString().trim()
-            val input2 = spendLocation.text.toString().trim()
+//            val input2 = spendLocation.text.toString().trim()
             if(input1.isNotEmpty() && input2.isNotEmpty()){
                 val postDao = PostDao()
                 postDao.addPost(input1,input2)
