@@ -2,6 +2,7 @@ package com.example.cashmates
 
 import android.annotation.SuppressLint
 import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.github.mikephil.charting.charts.BarChart
@@ -26,6 +27,7 @@ class Analyze : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_analyze)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        supportActionBar!!.setBackgroundDrawable(ColorDrawable(Color.parseColor("#944503")))
         readData(object: MyCallback {
             override fun onCallback(value: HashMap<String,Int>, value2: MutableMap<String,Int>) {
 

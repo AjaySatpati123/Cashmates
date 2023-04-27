@@ -12,5 +12,6 @@
     <color name="orangeShade">#ED7014</color>
     <color name="darkRed">#520303</color>
     <color name="darkOrange">#944503</color>
+    <color name="mainScreen">#FFFFFF</color>
 
 </resources>

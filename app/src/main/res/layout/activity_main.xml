@@ -5,67 +5,44 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/mainScreen"
     tools:context=".MainActivity">
 
-
     <TextView
-        android:id="@+id/spendAmount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="204dp"
-        android:text="@string/spend_amount"
+        android:layout_width="328dp"
+        android:layout_height="380dp"
+        android:background="@drawable/box"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/enterAmount"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:autofillHints="5000"
-        android:inputType="number"
-        android:minHeight="48dp"
-        android:hint="@string/thousand"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spendAmount"
-        tools:ignore="LabelFor" />
-
-    <TextView
-        android:id="@+id/spendOn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:text="@string/sector"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/enterAmount" />
-
-    <Spinner
-        android:id="@+id/spendLocation"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:autofillHints="5000"
-        android:inputType="text"
-        android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spendOn"
-        tools:ignore="LabelFor" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.358" />
 
     <Button
         android:id="@+id/add"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="52dp"
         android:text="@string/add"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spendLocation" />
+
+    <TextView
+        android:id="@+id/spendOn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="72dp"
+        android:text="@string/sector"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/enterAmount" />
 
     <Button
         android:id="@+id/analyze"
@@ -76,18 +53,63 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/add"
-        app:layout_constraintVertical_bias="0.435" />
+        app:layout_constraintVertical_bias="0.351" />
 
     <Button
         android:id="@+id/addNote"
         android:layout_width="192dp"
         android:layout_height="48dp"
+        android:backgroundTint="@android:color/holo_red_dark"
         android:text="@string/notes"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/analyze"
-        app:layout_constraintHorizontal_bias="0.258"
+        app:layout_constraintHorizontal_bias="0.217"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/add"
-        app:layout_constraintVertical_bias="0.437" />
+        app:layout_constraintVertical_bias="0.351" />
+
+    <EditText
+        android:id="@+id/enterAmount"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:autofillHints="5000"
+        android:hint="@string/thousand"
+        android:inputType="number"
+        android:minHeight="48dp"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spendAmount"
+        tools:ignore="LabelFor" />
+
+    <Spinner
+        android:id="@+id/spendLocation"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:autofillHints="5000"
+        android:inputType="text"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spendOn"
+        tools:ignore="LabelFor" />
+
+    <TextView
+        android:id="@+id/spendAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="164dp"
+        android:text="@string/spend_amount"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
