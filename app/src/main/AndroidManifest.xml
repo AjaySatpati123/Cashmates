@@ -23,6 +23,7 @@
         <activity
             android:name=".Analyze"
             android:exported="false"
+            android:theme="@style/Theme.MyApplication2"
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".SignInActivity"

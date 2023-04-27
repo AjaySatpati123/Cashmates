@@ -16,4 +16,7 @@
     <style name="Theme.MyApplication1" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <item name="android:statusBarColor">@color/darkOrange</item>
     </style>
+    <style name="Theme.MyApplication2" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="android:statusBarColor">@color/darkGreen</item>
+    </style>
 </resources>

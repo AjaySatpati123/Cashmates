@@ -27,7 +27,7 @@ class Analyze : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_analyze)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-        supportActionBar!!.setBackgroundDrawable(ColorDrawable(Color.parseColor("#944503")))
+        supportActionBar!!.setBackgroundDrawable(ColorDrawable(Color.parseColor("#234F1E")))
         readData(object: MyCallback {
             override fun onCallback(value: HashMap<String,Int>, value2: MutableMap<String,Int>) {
 
@@ -86,6 +86,7 @@ class Analyze : AppCompatActivity() {
                 pieChart.animateY(500)
                 pieChart.holeRadius = 30f
                 pieChart.transparentCircleRadius = 35f
+                pieChart.setHoleColor(Color.parseColor("#BDF379"))
                 pieChart.setEntryLabelTextSize(8f)
                 pieChart.legend.isEnabled = false
             }
