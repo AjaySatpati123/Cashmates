@@ -1,6 +1,8 @@
 package com.example.cashmates
 
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -16,7 +18,7 @@ class Notes : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_notes)
-
+        supportActionBar!!.setBackgroundDrawable(ColorDrawable(Color.parseColor("#944503")))
         fab.setOnClickListener {
             val intent3 = Intent(this, CreateNoteActivity::class.java)
             startActivity(intent3)

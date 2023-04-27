@@ -14,8 +14,10 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_analyze.*
+import kotlinx.android.synthetic.main.activity_analyze.view.*
 import java.text.SimpleDateFormat
 import java.util.*
+
 
 class Analyze : AppCompatActivity() {
     private val db = Firebase.firestore
@@ -45,16 +47,23 @@ class Analyze : AppCompatActivity() {
                     list2.add(BarEntry(i.toFloat(),values.toFloat()))
                     i++
                 }
-                val dataset = BarDataSet(list2, "Data Set Label")
+                val maxValue = list2.size.toFloat()
+                val dataset = BarDataSet(list2, "Legend")
                 dataset.colors = ColorTemplate.MATERIAL_COLORS.toList()
                 val barData = BarData(dataset)
+                barData.barWidth = 0.8f;
                 chart.data = barData
                 chart.xAxis.valueFormatter= IndexAxisValueFormatter(labels)
                 chart.xAxis.position = XAxis.XAxisPosition.BOTTOM
                 chart.axisLeft.axisMinimum = 0f
                 chart.axisRight.axisMinimum = 0f
-                chart.animateY(1000)
+                chart.axisRight.setDrawLabels(false)
+                chart.legend.isEnabled = false
+                chart.animateY(500)
+                chart.setVisibleXRangeMaximum(3F)
+                chart.moveViewToX(maxValue)
                 chart.invalidate()
+
 //                PieChart
                 val pieChart: PieChart = findViewById(R.id.pieChart)
                 val list: ArrayList<PieEntry> = ArrayList()
@@ -64,15 +73,19 @@ class Analyze : AppCompatActivity() {
                 value["One Time Cost"]?.let { PieEntry(it.toFloat(),"One Time Cost") }?.let { list.add(it) }
                 value["Entertainment"]?.let { PieEntry(it.toFloat(),"Entertainment") }?.let { list.add(it) }
                 value["Other Cost"]?.let { PieEntry(it.toFloat(),"Other Cost") }?.let { list.add(it) }
-                val pieDataSet = PieDataSet(list,"Spends")
+                val pieDataSet = PieDataSet(list,"Legend")
                 pieDataSet.setColors(ColorTemplate.COLORFUL_COLORS, 255)
-                pieDataSet.valueTextSize = 15f
+                pieDataSet.valueTextSize = 10f
                 pieDataSet.valueTextColor = Color.BLACK
                 val pieData = PieData(pieDataSet)
                 pieChart.data = pieData
-                pieChart.description.text= "Pie Chart"
+                pieChart.description.text= ""
                 pieChart.centerText = "Spends"
-                pieChart.animateY(2000)
+                pieChart.animateY(500)
+                pieChart.holeRadius = 30f
+                pieChart.transparentCircleRadius = 35f
+                pieChart.setEntryLabelTextSize(8f)
+                pieChart.legend.isEnabled = false
             }
         })
     }
