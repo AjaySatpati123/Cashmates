@@ -53,7 +53,7 @@ class Analyze : AppCompatActivity() {
                 val dataset = BarDataSet(list2, "Legend")
                 dataset.colors = ColorTemplate.MATERIAL_COLORS.toList()
                 val barData = BarData(dataset)
-                barData.barWidth = 0.8f;
+                barData.barWidth = 0.8f
                 chart.data = barData
                 chart.xAxis.valueFormatter= IndexAxisValueFormatter(labels)
                 chart.xAxis.position = XAxis.XAxisPosition.BOTTOM
